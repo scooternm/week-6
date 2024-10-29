@@ -68,7 +68,7 @@ courses.filter(c => c.Location === "Classroom 1")
 
 
 //further
-function print(text){
+function print (text){
     console.log(text);
 }
 
