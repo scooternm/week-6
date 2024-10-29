@@ -67,3 +67,13 @@ courses.filter(c => c.Location === "Classroom 1")
         .forEach(t => console.log(t));
 
 
+//further
+function print(text){
+    console.log(text);
+}
+
+courses.filter(c => c.Location === "Classroom 1") //limit to only matches
+       .map(c => c.Title) //keep onlt the title
+       .forEach(print); //show the title 
+
+
