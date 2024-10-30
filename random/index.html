@@ -15,7 +15,7 @@
         // document.body.innerText = getInteger(1, 6);
         const moles = [];
         const LIMIT = 12;
-        for(let n=0; n < LIMIT; n++) {
+        for(let n = 0; n < LIMIT; n++) {
             moles.push({
                 x:getInteger(0, 99),
                 y:getInteger(0, 100), 
@@ -23,17 +23,29 @@
             });
 
         }
-        function render(){
-            document.body.innerHTML = moles.map(m=>
-            `<div 
-                onClick="this.remove()" 
-                style="position:absolute; left:${m.x}; top:${m.y}vw;"
-            >
-                M
-            </div>`
-        ).join('');
-    }
+
+        function onClickMole(event) {
+            moles[event.target.dataset.index].dead = true;
+            render();
+        }
+
+        function getMole(mole, index) {
+            const e = document.createElement("img");
+            e.dataset.index = index; //data-index=
+            e.src = moles[index].dead ? "x.jpeg" : "pic.png";
+            e.style.left = mole.x + "vw";
+            e.style.top = mole.y + "vw";
+            e.style.width = "32px";
+            e.style.position = "absolute";
+            e.addEventListener("click", onClickMole)
+            return e;
+        }
+        function render() {
+            console.log("RENDERING")
+            document.body.innerHTML = "";
+            moles.forEach((m, i) => { document.body.appendChild(getMole(m, i)) });
+        }
     render();
-    </script>
+</script>
 </body>
 </html>
