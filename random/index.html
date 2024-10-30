@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <body>
     <script>
         function getInteger(start, stop){
@@ -18,7 +11,7 @@
         for(let n = 0; n < LIMIT; n++) {
             moles.push({
                 x:getInteger(0, 99),
-                y:getInteger(0, 100), 
+                y:getInteger(0, 99), 
                 dead: false
             });
 
@@ -45,7 +38,6 @@
             document.body.innerHTML = "";
             moles.forEach((m, i) => { document.body.appendChild(getMole(m, i)) });
         }
-    render();
-</script>
+        render();
+    </script>
 </body>
-</html>
